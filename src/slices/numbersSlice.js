@@ -7,6 +7,7 @@ const numbersSlice = createSlice({
     result: '',
     minusSign: false,
     dotSign: false,
+    history: [],
   },
   reducers: {
     numberAdded: (state, action) => {
@@ -36,6 +37,9 @@ const numbersSlice = createSlice({
     setResult: (state, action) => {
       state.result = action.payload.toString();
     },
+    popValue: (state) => {
+      state.numbers.pop();
+    },
   },
 });
 
@@ -46,6 +50,7 @@ export const {
   addSign,
   dotSign,
   setResult,
+  popValue,
 } = numbersSlice.actions;
 
 export default numbersSlice.reducer;

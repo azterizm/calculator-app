@@ -1,12 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { popValue } from '../slices/numbersSlice';
 
 export const Screen = () => {
   const values = useSelector((state) => state.numbers.numbers);
   const result = useSelector((state) => state.numbers.result);
 
+  const dispatch = useDispatch();
+
   return (
-    <div id="screen">
+    <div id="screen" onClick={() => dispatch(popValue())}>
       <h3 className="screenItem" id="display">
         {values}
       </h3>
